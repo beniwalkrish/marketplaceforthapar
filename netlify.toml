@@ -1,16 +1,15 @@
 [build]
   command = "npm run build"
   publish = ".next"
+  environment = { NODE_VERSION = "18.17.0" }
 
+# This tells Netlify to use Next.js runtime
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/.netlify/functions/index"
   status = 200
 
 [dev]
   command = "npm run dev"
   port = 3000
-
-[env]
-  [env.production]
-    NODE_VERSION = "18.17.0"
+  framework = "next"
